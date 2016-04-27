@@ -1,12 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Angular</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.5/angular.js"></script>
 </head>
-<body>
-    <h1>Ang</h1>
 
+<body>
+    <div ng-app='myApp' ng-controller='mainCtrl' class="container" style="padding-top: 40px">
+        <div class="row">
+            <div class="col-sm-4">
+                <form ng-submit="addContact()">
+                    <h2>New Contact</h2>
+                    <div class="form-group">
+                        <label for="">Name</label>
+                        <input type="text" class="form-control" placeholder="name" ng-model='newContact.name'>
+                    </div>
+                    <div class="form-group">
+                        <label for="">Email</label>
+                        <input type="text" class="form-control" placeholder="email" ng-model='newContact.email'>
+                    </div>
+                    <button type="submit" class="btn btn-block btn-primary">Add</button>
+                </form>
+            </div>
+            <div class="col-sm-8" ng-if="contacts">
+                <div class="list-group">
+                    <h2>Contact List</h2>
+                    <a href="#" class="list-group-item" ng-repeat="contact in contacts track by $index">
+                        <h4 class="list-group-item-heading">{{contact.name}}</h4>
+                        <p class="list-group-item-text">email: {{contact.email}}</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- <ul>
+            <li ng-repeat="name in names track by $index">This is {{name}}</li>
+        </ul> -->
+
+
+
+        <!--
+        <h4>mainCtrl</h4>
+        <form ng-submit='addName()'>
+            <input type="text" ng-model="newName" required ng-dblclick="deleteOne">
+            <button type="submit">add</button>
+        </form>
+        <ul>
+            <li ng-repeat="name in names track by $index">This is {{name}}</li>
+        </ul> -->
+    </div>
 </body>
+<script src='main.js'></script>
+
 </html>

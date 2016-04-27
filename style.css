@@ -1,0 +1,5 @@
+div[ng-app="myApp"] {
+    background: black;
+    padding: 20px;
+    text-align: center;
+}
